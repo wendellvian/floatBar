@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<title>floatBar</title>
+	<link rel="stylesheet" href="plugin/jquery.floatBar.css" type="text/css" />
+	<style type="text/css">
+		body{margin:0;}
+		.wraper{width:960px;margin:0px auto;}
+		.wraper .w{display:-webkit-box;height:500px;margin-top:10px;border:1px solid #ddd;background:#f4f4f4;font-size:204px;font-family:Impact;-webkit-box-align:center;text-align:center;color:#333;}
+		.w div{-webkit-box-flex:2}
+
+		/* =浮动边栏---- */
+		.f-1{bottom:100px;width:100px;background:#f4f4f4;border:2px solid #ddd;font-family:"\5FAE\8F6F\96C5\9ED1";}
+		.f-1 a{display:block;width:100px;height:30px;border-bottom:1px solid #ddd;background:#f4f4f4;color:#666;line-height:30px;text-align:center;text-decoration:none;}
+		.f-1 a:hover{background:#ddd;color:#666;text-decoration:none;}
+
+		.backTop{text-align:center;padding:10px 0;cursor:pointer;}
+
+		/* ie6的定位 */
+		*html .f-1{margin-top:-100px;}
+
+		.focus{background:#999 !important;color:#fff !important;}
+
+	</style>
+</head>
+<body>
+	<div class="wraper">
+		<div class="w" style="height:300px;font:700 44px '\5FAE\8F6F\96C5\9ED1';"><div>头部</div></div>
+		<div class="w" anchor-index="1"><div>1</div></div>
+		<div class="w" anchor-index="2"><div>2</div></div>
+		<div class="w" anchor-index="3"><div>3</div></div>
+		<div class="w" anchor-index="4"><div>4</div></div>
+		<div class="w" anchor-index="5"><div>5</div></div>
+		<div class="w" style="height:200px;font:700 44px '\5FAE\8F6F\96C5\9ED1';"><div>尾部</div></div>
+	</div>
+
+	<!-- 浮动边栏布局 -->
+	<div class="f-1 JQUI-FloBarDown">
+		<div class="navLnk">
+			<a href="javascript:;">1</a>
+			<a href="javascript:;">2</a>
+			<a href="javascript:;">3</a>
+			<a href="javascript:;">4</a>
+			<a href="javascript:;">5</a>
+		</div>
+		<a href="javascript:;" class="backtop">返回顶部</a>
+		<a href="javascript:;" class="backbottom">去底部</a>
+	</div>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="plugin/jquery.floatBar.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".f-1").floatBar({
+		moveOnOff:false,
+		// focusOnOff:false,
+		eleLabel:"a"
+	});
+});
+
+</script>
+</body>
+</html>
