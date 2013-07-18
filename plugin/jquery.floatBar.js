@@ -5,23 +5,31 @@
 
 */
 /*
-//	liveHeight:360,	// 活动高度: 取0时边栏位置为固定样式
-//	bodyWidth:960,	// 页面布局宽度
-//	winMinHeight:600,	// 浏览器最小高度
-//	topFixHeight:30,	// 顶部Fixed层的高度 middle:top共用
-//	spaceWidth:10,	// 浮动边栏与页面的间距
-//	align:"right",	// 浮动边栏左右停靠方式：right | left
-//	middle:"bottom",	// 浮动边栏上下停靠方式：bottom | top
-//	speed:300,	// 速度：非0毫秒数值 | "slow" | "fast"
-//	aniOnOff:true,	// 效果开关：true | false
-//	moveOnOff:true	// 运动开关：true | false
+//	liveHeight:360,                       // 活动高度: 取0时边栏位置为固定样式
+//	bodyWidth:960,                        // 页面布局宽度
+//	winMinHeight:600,                     // 浏览器最小高度
+//	topFixHeight:30,                      // 顶部Fixed层的高度 middle:top共用
+//	spaceWidth:10,                        // 浮动边栏与页面的间距
+//	align:"right",                        // 浮动边栏左右停靠方式：right | left
+//	middle:"bottom",                      // 浮动边栏上下停靠方式：bottom | top
+//	speed:300,                            // 速度：非0毫秒数值 | "slow" | "fast"
+//	aniOnOff:true,                        // 效果开关：true | false
+//	moveOnOff:true,                       // 运动开关：true | false
+
+//	eleFocus:"focus",                     // 焦点：class="focus"
+//	eleName:"back",                       // 元素名称
+//	eleLabel:"li",                        // 结构标签
+//	anchorIndex:"anchor-index",           // 锚节点
+//	eleMargin:10,                         // 板块间距
+//	mouseCtrl:"click",                    // 鼠标事件：click | mouseover
+//	focusOnOff:true                       // 滚动获焦开关：false | true
 */
 
 (function($){
 	$.fn.extend({
 		floatBar:function(options){
 			var defaults = {
-				liveHeight:360,
+			liveHeight:360,
 		    	bodyWidth:960,
 		    	winMinHeight:600,
 		    	topFixHeight:30,
@@ -30,10 +38,67 @@
 		    	middle:"bottom",
 		    	speed:300,
 		    	aniOnOff:true,
-		    	moveOnOff:true
+		    	moveOnOff:true,
+
+		    	eleFocus:"focus",
+		    	eleName:"back",
+		    	eleLabel:"li",
+		    	anchorIndex:"anchor-index",
+		    	eleMargin:10,
+		    	mouseCtrl:"click",
+		    	focusOnOff:true
 			}
 			var options = $.extend(defaults,options);
 			var thisObj = $(this);
+
+			// 滚屏导航
+			var queArray=[];
+			var eleQue;
+
+			$("["+options.anchorIndex+"]").each(function(){
+				queArray.push({
+					index:$(this).attr(options.anchorIndex),
+					height:$(this).height(),
+					top:$(this).offset().top
+				});
+			});
+
+			function sCrollScreen(cObj){
+				var oWinTop = $(window).scrollTop();
+				thisObj.find("."+options.eleFocus).removeClass(options.eleFocus);
+				for(var i = 0,k = queArray.length;i<k;i++){
+					eleQue = queArray[i];
+        			var oWinTopX = (oWinTop + cObj.oWinHeight) - (eleQue.height * (queArray.length - 1) / queArray.length);
+					if(eleQue.top > oWinTop){
+                        if(eleQue.top > oWinTopX){
+                        	eleQue = queArray[i-1];
+                        }
+                        if(eleQue){
+							thisObj.find(options.eleLabel).eq(eleQue.index-1).addClass(options.eleFocus);
+						}
+						break;
+					}
+				}
+			}
+
+			thisObj.find(options.eleLabel).bind(options.mouseCtrl,function(){
+				var index = $(this).index() + 1;
+				var $anchor = $("["+options.anchorIndex+"="+index+"]");
+				$("html,body").stop().animate({
+					scrollTop:$anchor.offset().top-options.eleMargin
+				},options.speed);
+				return false;
+			});
+			thisObj.find("."+options.eleName+"top").click(function(){
+				$("html,body").stop().animate({
+					scrollTop:0
+				},options.speed);
+			});
+			thisObj.find("."+options.eleName+"bottom").click(function(){
+				$("html,body").stop().animate({
+					scrollTop:$("body").height()
+				},options.speed);
+			});
 
 			function dataEle(attrObj){
 				switch(options.middle){
@@ -93,6 +158,7 @@
 				}
 
 				options.moveOnOff ? chaScroll(posi) : " ";
+				options.focusOnOff ? sCrollScreen(posi) : " ";	//	滚屏首次加载
 
 				return posi;
 			}
@@ -142,6 +208,7 @@
 			$(window).scroll(function(){
 				oWinTop = $(window).scrollTop();	// 滚动条滚动时距离顶部的坐标
 				options.moveOnOff ? chaScroll(posiObj) : " ";
+				options.focusOnOff ? sCrollScreen(posiObj) : " ";
 			});
 
 			return $(this);
