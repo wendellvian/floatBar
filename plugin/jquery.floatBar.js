@@ -68,12 +68,12 @@
 				thisObj.find("."+options.eleFocus).removeClass(options.eleFocus);
 				for(var i = 0,k = queArray.length;i<k;i++){
 					eleQue = queArray[i];
-        			var oWinTopX = (oWinTop + cObj.oWinHeight) - (eleQue.height * (queArray.length - 1) / queArray.length);
+        				var oWinTopX = (oWinTop + cObj.oWinHeight) - (eleQue.height * (queArray.length - 1) / queArray.length);
 					if(eleQue.top > oWinTop){
-                        if(eleQue.top > oWinTopX){
-                        	eleQue = queArray[i-1];
-                        }
-                        if(eleQue){
+			                        if(eleQue.top > oWinTopX){
+			                        	eleQue = queArray[i-1];
+			                        }
+                        			if(eleQue){
 							thisObj.find(options.eleLabel).eq(eleQue.index-1).addClass(options.eleFocus);
 						}
 						break;
