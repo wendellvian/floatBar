@@ -1,5 +1,5 @@
 /*
- * floatBar v1.0
+ * floatBar v1.1
  * Copyright (c) 2013 Wendell  http://blog.webql.info/
  * https://github.com/wendellvian/floatBar.git
 
