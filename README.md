@@ -53,27 +53,27 @@ jQuery FloatBar Plugin
 
 **CSS写法**
 ```css
-	// 上方（包含左上方和右上方）
+	/* 上方（包含左上方和右上方） */
 	element{top:value;}
 	childelement{width:value;height:value;...}
 	
-	// 下方（包含左下方和右下方）
+	/* 下方（包含左下方和右下方） */
 	element{bottom:value}
 	childelement{width:value;height:value;...}
 	
-	// 兼容IE6浏览器写法
-	*html element{margin-top:value;}         // 上方（包含左上方和右上方）
-	*html element{margin-top:-value;}        // 下方（包含左下方和右下方）
+	/* 兼容IE6浏览器写法*/
+	*html element{margin-top:value;}         /* 上方（包含左上方和右上方） */
+	*html element{margin-top:-value;}        /* 下方（包含左下方和右下方） */
 ```
 
 **HTML写法**
 ```html
-	// 下方
+	<!-- 下方 -->
 	<div class="element JQUI-FloBarDown">
 	...
 	</div>
 	
-	// 上方
+	<!-- 上方 -->
 	<div class="element JQUI-FloBarUp">
 	...
 	</div>
@@ -84,32 +84,32 @@ jQuery FloatBar Plugin
 	<div anchor-index="1">...</div>
 	<div anchor-index="2">...</div>
 	...
-	// anchor-index可自定义
-	// 传值 -> anchorIndex:"自定义"
-	// 如：<div aaa="1">...</div>
-	// 传值 -> anchorIndex:"aaa"
+	<!-- anchor-index可自定义 -->
+	<!-- 传值 -> anchorIndex:"自定义" -->
+	<!-- 如：<div aaa="1">...</div> -->
+	<!-- 传值 -> anchorIndex:"aaa" -->
 ```
 
 *增加滚动获焦功能*
-```php
-	// 默认结构
+```html
+	<!-- 默认结构 -->
 	<div>
-	<ul>
-		<li class="focus">...</li>
-		<li>...</li>
-		...
-	</ul>
+		<ul>
+			<li class="focus">...</li>
+			<li>...</li>
+			...
+		</ul>
 	</div>
-	// 标签 && 类 可自定义
-	// 传值 -> eleLabel:"自定义"
-	// 传值 -> eleFocus:"自定义"
+	<!-- 标签 && 类 可自定义 -->
+	<!-- 传值 -> eleLabel:"自定义" -->
+	<!-- 传值 -> eleFocus:"自定义" -->
 	<div>
 		<a class="bar" href="javascript:;">...</a>
 		<a href="javascript:;">...</a>
 		...
 	</div>
-	// 如：eleLabel:"a"
-	// 如：eleFocus:"bar"
+	<!-- 如：eleLabel:"a" -->
+	<!-- 如：eleFocus:"bar" -->
 ```
 
 *增加获焦关闭功能(焦点不可见)*
@@ -118,12 +118,12 @@ jQuery FloatBar Plugin
 ```
 
 *增加置顶置底功能*
-```js
+```html
 	<a href="javascript:;" class="backtop">返回顶部</a>
 	<a href="javascript:;" class="backbottom">去底部</a>
-	// 标签可自定义
-	// class需遵循规则 -> 自定义+top || 自定义+bottom
-	// 传值 -> eleName:"自定义"
+	<!-- 标签可自定义 -->
+	<!-- class需遵循规则 -> 自定义+top || 自定义+bottom -->
+	<!-- 传值 -> eleName:"自定义" -->
 ```
 
 
