@@ -19,12 +19,12 @@ jQuery FloatBar Plugin
 
 *增加参数*
     eleFocus:"focus",                     // 焦点：class="focus"
-	eleName:"back",                       // 元素名称
-	eleLabel:"li",                        // 结构标签
-	anchorIndex:"anchor-index",           // 锚节点
-	eleMargin:10,                         // 板块间距
-	mouseCtrl:"click",                    // 鼠标事件：click | mouseover
-	focusOnOff:true                       // 滚动获焦开关：false | true
+    eleName:"back",                       // 元素名称
+    eleLabel:"li",                        // 结构标签
+    anchorIndex:"anchor-index",           // 锚节点
+    eleMargin:10,                         // 板块间距
+    mouseCtrl:"click",                    // 鼠标事件：click | mouseover
+    focusOnOff:true                       // 滚动获焦开关：false | true
 
 **使用方法**
 
