@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>FloatBar Plugin by wendellvian</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/wendellvian/floatBar">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/wendellvian/floatBar/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/wendellvian/floatBar/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>FloatBar Plugin</h1>
+          <p>基于jQuery的浮动边栏插件</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/wendellvian">wendellvian</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <p>用于控制页面主体以外的容器定位插件，分左上，左下，右上，右下四个方位排布。</p>
+
+<p>兼容IE6浏览器</p>
+
+<div class="highlight"><pre>    <span class="nx">liveHeight</span><span class="o">:</span><span class="mi">360</span><span class="p">,</span>                       <span class="c1">// 活动高度: 取0时边栏位置为固定样式</span>
+    <span class="nx">bodyWidth</span><span class="o">:</span><span class="mi">960</span><span class="p">,</span>                        <span class="c1">// 页面布局宽度</span>
+    <span class="nx">winMinHeight</span><span class="o">:</span><span class="mi">600</span><span class="p">,</span>                     <span class="c1">// 浏览器最小高度</span>
+    <span class="nx">topFixHeight</span><span class="o">:</span><span class="mi">30</span><span class="p">,</span>                      <span class="c1">// 顶部Fixed层的高度 middle:top共用</span>
+    <span class="nx">spaceWidth</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span>                        <span class="c1">// 浮动边栏与页面的间距</span>
+    <span class="nx">align</span><span class="o">:</span><span class="s2">"right"</span><span class="p">,</span>                        <span class="c1">// 浮动边栏左右停靠方式：right | left</span>
+    <span class="nx">middle</span><span class="o">:</span><span class="s2">"bottom"</span><span class="p">,</span>                      <span class="c1">// 浮动边栏上下停靠方式：bottom | top</span>
+    <span class="nx">speed</span><span class="o">:</span><span class="mi">300</span><span class="p">,</span>                            <span class="c1">// 速度：非0毫秒数值 | "slow" | "fast"</span>
+    <span class="nx">aniOnOff</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>                        <span class="c1">// 效果开关：true | false</span>
+    <span class="nx">moveOnOff</span><span class="o">:</span><span class="kc">true</span>                        <span class="c1">// 运动开关：true | false</span>
+</pre></div>
+
+<p><strong>使用方法</strong></p>
+
+<div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">floatBar</span><span class="p">();</span>
+    <span class="c1">// 浮动边栏默认右下方</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">floatBar</span><span class="p">({</span>
+    <span class="nx">middle</span><span class="o">:</span><span class="s2">"top"</span>
+    <span class="p">});</span>
+    <span class="c1">// 右上方 可以追加设置topFixHeight的值</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">floatBar</span><span class="p">({</span>
+    <span class="nx">middle</span><span class="o">:</span><span class="s2">"top"</span><span class="p">,</span>
+    <span class="nx">align</span><span class="o">:</span><span class="s2">"left"</span>
+    <span class="p">});</span>
+    <span class="c1">// 左上方 可以追加设置topFixHeight的值</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">floatBar</span><span class="p">({</span>
+    <span class="nx">align</span><span class="o">:</span><span class="s2">"left"</span>
+    <span class="p">});</span>
+    <span class="c1">// 左下方</span>
+</pre></div>
+
+<p><strong>CSS写法</strong></p>
+
+<div class="highlight"><pre>    <span class="c">/* 上方（包含左上方和右上方） */</span>
+    <span class="nt">element</span><span class="p">{</span><span class="k">top</span><span class="o">:</span><span class="n">value</span><span class="p">;}</span>
+    <span class="nt">childelement</span><span class="p">{</span><span class="k">width</span><span class="o">:</span><span class="n">value</span><span class="p">;</span><span class="k">height</span><span class="o">:</span><span class="n">value</span><span class="p">;</span><span class="o">...</span><span class="p">}</span>
+
+    <span class="c">/* 下方（包含左下方和右下方） */</span>
+    <span class="nt">element</span><span class="p">{</span><span class="k">bottom</span><span class="o">:</span><span class="n">value</span><span class="p">}</span>
+    <span class="nt">childelement</span><span class="p">{</span><span class="k">width</span><span class="o">:</span><span class="n">value</span><span class="p">;</span><span class="k">height</span><span class="o">:</span><span class="n">value</span><span class="p">;</span><span class="o">...</span><span class="p">}</span>
+
+    <span class="c">/* 兼容IE6浏览器写法*/</span>
+    <span class="o">*</span><span class="nt">html</span> <span class="nt">element</span><span class="p">{</span><span class="k">margin-top</span><span class="o">:</span><span class="n">value</span><span class="p">;}</span>         <span class="c">/* 上方（包含左上方和右上方） */</span>
+    <span class="o">*</span><span class="nt">html</span> <span class="nt">element</span><span class="p">{</span><span class="k">margin-top</span><span class="o">:-</span><span class="n">value</span><span class="p">;}</span>        <span class="c">/* 下方（包含左下方和右下方） */</span>
+</pre></div>
+
+<p><strong>HTML写法</strong></p>
+
+<div class="highlight"><pre>    <span class="c">&lt;!-- 下方 --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"element JQUI-FloBarDown"</span><span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="c">&lt;!-- 上方 --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"element JQUI-FloBarUp"</span><span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h1></h1>
+
+<p><em>增加参数</em></p>
+
+<div class="highlight"><pre>    <span class="nx">eleFocus</span><span class="o">:</span><span class="s2">"focus"</span><span class="p">,</span>                     <span class="c1">// 焦点：class="focus"</span>
+    <span class="nx">eleName</span><span class="o">:</span><span class="s2">"back"</span><span class="p">,</span>                       <span class="c1">// 元素名称</span>
+    <span class="nx">eleLabel</span><span class="o">:</span><span class="s2">"li"</span><span class="p">,</span>                        <span class="c1">// 结构标签</span>
+    <span class="nx">anchorIndex</span><span class="o">:</span><span class="s2">"anchor-index"</span><span class="p">,</span>           <span class="c1">// 锚节点</span>
+    <span class="nx">eleMargin</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span>                         <span class="c1">// 板块间距</span>
+    <span class="nx">mouseCtrl</span><span class="o">:</span><span class="s2">"click"</span><span class="p">,</span>                    <span class="c1">// 鼠标事件：click | mouseover</span>
+    <span class="nx">focusOnOff</span><span class="o">:</span><span class="kc">true</span>                       <span class="c1">// 滚动获焦开关：false | true</span>
+</pre></div>
+
+<p><em>增加锚节点</em></p>
+
+<div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">anchor-index=</span><span class="s">"1"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">anchor-index=</span><span class="s">"2"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+    ...
+    <span class="c">&lt;!-- anchor-index可自定义 --&gt;</span>
+    <span class="c">&lt;!-- 传值 -&gt; anchorIndex:"自定义" --&gt;</span>
+    <span class="c">&lt;!-- 如：&lt;div aaa="1"&gt;...&lt;/div&gt; --&gt;</span>
+    <span class="c">&lt;!-- 传值 -&gt; anchorIndex:"aaa" --&gt;</span>
+</pre></div>
+
+<p><em>增加滚动获焦功能</em></p>
+
+<div class="highlight"><pre>    <span class="c">&lt;!-- 默认结构 --&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"focus"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+            ...
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="c">&lt;!-- 标签 &amp;&amp; 类 可自定义 --&gt;</span>
+    <span class="c">&lt;!-- 传值 -&gt; eleLabel:"自定义" --&gt;</span>
+    <span class="c">&lt;!-- 传值 -&gt; eleFocus:"自定义" --&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"bar"</span> <span class="na">href=</span><span class="s">"javascript:;"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/a&gt;</span>
+        ...
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="c">&lt;!-- 如：eleLabel:"a" --&gt;</span>
+    <span class="c">&lt;!-- 如：eleFocus:"bar" --&gt;</span>
+</pre></div>
+
+<p><em>增加获焦关闭功能(焦点不可见)</em></p>
+
+<div class="highlight"><pre>    <span class="nx">focusOnOff</span><span class="o">:</span><span class="kc">false</span>
+</pre></div>
+
+<p><em>增加置顶置底功能</em></p>
+
+<div class="highlight"><pre>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="na">class=</span><span class="s">"backtop"</span><span class="nt">&gt;</span>返回顶部<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="na">class=</span><span class="s">"backbottom"</span><span class="nt">&gt;</span>去底部<span class="nt">&lt;/a&gt;</span>
+    <span class="c">&lt;!-- 标签可自定义 --&gt;</span>
+    <span class="c">&lt;!-- class需遵循规则 -&gt; 自定义+top || 自定义+bottom --&gt;</span>
+    <span class="c">&lt;!-- 传值 -&gt; eleName:"自定义" --&gt;</span>
+</pre></div>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
