@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>floatBar</title>
+	<link rel="stylesheet" href="plugin/jquery.floatBar.css" type="text/css" />
+	<style type="text/css">
+		body{margin:0;}
+		.wraper{width:960px;margin:0px auto;}
+		.wraper .w{display:-webkit-box;height:500px;margin-bottom:10px;border:1px solid #ddd;background:#f4f4f4;font-size:204px;font-family:Impact;-webkit-box-align:center;text-align:center;color:#333;}
+		.w div{-webkit-box-flex:2}
+
+		/* =浮动边栏---- */
+		.f-1{bottom:100px;width:100px;background:#f4f4f4;border:2px solid #ddd;font-family:"\5FAE\8F6F\96C5\9ED1";}
+		.f-1 a{display:block;width:100px;height:30px;border-bottom:1px solid #ddd;background:#f4f4f4;color:#666;line-height:30px;text-align:center;text-decoration:none;}
+		.f-1 a:hover{background:#ddd;color:#666;text-decoration:none;}
+
+		.f-2{top:100px;}
+		.f-2 p{width:14px;background:#f4f4f4;border:2px solid #ddd;padding:10px;color:#666;font-family:"\5FAE\8F6F\96C5\9ED1";}
+
+		.f-3{bottom:10px;}
+		.f-3 p{width:14px;background:#f4f4f4;border:2px solid #ddd;padding:10px;color:#666;font-family:"\5FAE\8F6F\96C5\9ED1";}
+
+		.f-4{top:150px;}
+		.f-4 p{width:14px;background:#f4f4f4;border:2px solid #ddd;padding:10px;color:#666;font-family:"\5FAE\8F6F\96C5\9ED1";}
+
+		/* ie6的定位 */
+		*html .f-1{margin-top:-100px;}
+		*html .f-2{margin-top:100px;}
+		*html .f-3{margin-top:-10px;}
+		*html .f-4{margin-top:150px;}
+
+	</style>
+</head>
+<body>
+	<div class="wraper">
+		<div class="w w1" id="w1"><div>1</div></div>
+		<div class="w w2" id="w2"><div>2</div></div>
+		<div class="w w3" id="w3"><div>3</div></div>
+		<div class="w w4" id="w4"><div>4</div></div>
+		<div class="w w5" id="w5"><div>5</div></div>
+	</div>
+
+	<!-- 浮动边栏布局 -->
+	<div class="f-1 JQUI-FloBarDown">
+		<div class="navLnk">
+			<a href="#w1">1</a>
+			<a href="#w2">2</a>
+			<a href="#w3">3</a>
+			<a href="#w4">4</a>
+			<a href="#w5">5</a>
+		</div>
+	</div>
+
+	<div class="f-2 JQUI-FloBarUp">
+		<p>右侧上边栏</p>
+	</div>
+	<div class="f-3 JQUI-FloBarDown">
+		<p>左侧下边栏</p>
+	</div>
+	<div class="f-4 JQUI-FloBarUp">
+		<p>左侧上边栏</p>
+	</div>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="plugin/jquery.floatBar.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".f-1").floatBar();
+	$(".f-2").floatBar({middle:"top",topFixHeight:0});
+	$(".f-3").floatBar({align:"left",moveOnOff:false});
+	$(".f-4").floatBar({align:"left",middle:"top"});
+});
+
+</script>
+</body>
+</html>

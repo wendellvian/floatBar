@@ -1,0 +1,11 @@
+/*
+ * floatBar v1.0
+ * Copyright (c) 2013 Wendell  http://blog.webql.info/
+ * https://github.com/wendellvian/floatBar.git
+*/
+
+.JQUI-FloBarDown,.JQUI-FloBarUp{display:none;position:fixed;right:0;}
+
+*html .JQUI-FloBarDown{position:absolute;top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight));}
+*html .JQUI-FloBarUp{position:absolute;top:expression(eval(document.documentElement.scrollTop));}
+*html{text-overflow:ellipsis;}
