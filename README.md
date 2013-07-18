@@ -6,16 +6,25 @@ jQuery FloatBar Plugin
 这是一个用于控制页面主体以外的容器定位插件，分左上，左下，右上，右下四个方位排布。
 
 
-    liveHeight:360,     // 活动高度: 取0时边栏位置为固定样式
-    bodyWidth:960,      // 页面布局宽度
-    winMinHeight:600,   // 浏览器最小高度
-    topFixHeight:30,    // 顶部Fixed层的高度 middle:top共用
-    spaceWidth:10,      // 浮动边栏与页面的间距
-    align:"right",      // 浮动边栏左右停靠方式：right | left
-    middle:"bottom",    // 浮动边栏上下停靠方式：bottom | top
-    speed:300,          // 速度：非0毫秒数值 | "slow" | "fast"
-    aniOnOff:true,      // 效果开关：true | false
-    moveOnOff:true      // 运动开关：true | false
+    liveHeight:360,                       // 活动高度: 取0时边栏位置为固定样式
+    bodyWidth:960,                        // 页面布局宽度
+    winMinHeight:600,                     // 浏览器最小高度
+    topFixHeight:30,                      // 顶部Fixed层的高度 middle:top共用
+    spaceWidth:10,                        // 浮动边栏与页面的间距
+    align:"right",                        // 浮动边栏左右停靠方式：right | left
+    middle:"bottom",                      // 浮动边栏上下停靠方式：bottom | top
+    speed:300,                            // 速度：非0毫秒数值 | "slow" | "fast"
+    aniOnOff:true,                        // 效果开关：true | false
+    moveOnOff:true                        // 运动开关：true | false
+
+*增加参数*
+    eleFocus:"focus",                     // 焦点：class="focus"
+	eleName:"back",                       // 元素名称
+	eleLabel:"li",                        // 结构标签
+	anchorIndex:"anchor-index",           // 锚节点
+	eleMargin:10,                         // 板块间距
+	mouseCtrl:"click",                    // 鼠标事件：click | mouseover
+	focusOnOff:true                       // 滚动获焦开关：false | true
 
 **使用方法**
 
@@ -65,9 +74,44 @@ jQuery FloatBar Plugin
     </div>
 
 
+*增加锚节点*
+	<div anchor-index="1">...</div>
+    <div anchor-index="2">...</div>
+    ...
+    // anchor-index可自定义
+    // 传值 -> anchorIndex:"自定义"
+    // 如：<div aaa="1">...</div>
+    // 传值 -> anchorIndex:"aaa"
 
+*增加滚动获焦功能*
+    // 默认结构
+	<div>
+        <ul>
+            <li class="focus">...</li>
+            <li>...</li>
+            ...
+        </ul>
+	</div>
+    // 标签 && 类 可自定义
+    // 传值 -> eleLabel:"自定义"
+    // 传值 -> eleFocus:"自定义"
+    <div>
+        <a class="bar" href="javascript:;">...</a>
+        <a href="javascript:;">...</a>
+        ...
+	</div>
+    // 如：eleLabel:"a"
+    // 如：eleFocus:"bar"
 
+*增加获焦关闭功能(焦点不可见)*
+    focusOnOff:false
 
+*增加置顶置底功能*
+	<a href="javascript:;" class="backtop">返回顶部</a>
+	<a href="javascript:;" class="backbottom">去底部</a>
+    // 标签可自定义
+    // class需遵循规则 -> 自定义+top || 自定义+bottom
+    // 传值 -> eleName:"自定义"
 
 
 
