@@ -18,16 +18,6 @@ jQuery FloatBar Plugin
 	moveOnOff:true                        // 运动开关：true | false
 ```
 
-*增加参数*
-```js
-	eleFocus:"focus",                     // 焦点：class="focus"
-	eleName:"back",                       // 元素名称
-	eleLabel:"li",                        // 结构标签
-	anchorIndex:"anchor-index",           // 锚节点
-	eleMargin:10,                         // 板块间距
-	mouseCtrl:"click",                    // 鼠标事件：click | mouseover
-	focusOnOff:true                       // 滚动获焦开关：false | true
-```
 
 **使用方法**
 ```js
@@ -77,6 +67,18 @@ jQuery FloatBar Plugin
 	<div class="element JQUI-FloBarUp">
 	...
 	</div>
+```
+===============================================================================
+
+*增加参数*
+```js
+	eleFocus:"focus",                     // 焦点：class="focus"
+	eleName:"back",                       // 元素名称
+	eleLabel:"li",                        // 结构标签
+	anchorIndex:"anchor-index",           // 锚节点
+	eleMargin:10,                         // 板块间距
+	mouseCtrl:"click",                    // 鼠标事件：click | mouseover
+	focusOnOff:true                       // 滚动获焦开关：false | true
 ```
 
 *增加锚节点*
