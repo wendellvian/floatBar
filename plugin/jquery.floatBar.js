@@ -1,5 +1,5 @@
 /*
- * floatBar v1.1
+ * floatBar v1.2
  * Copyright (c) 2013 Wendell  http://blog.webql.info/
  * https://github.com/wendellvian/floatBar.git
 
@@ -8,10 +8,10 @@
 //	liveHeight:360,                       // 活动高度: 取0时边栏位置为固定样式
 //	bodyWidth:960,                        // 页面布局宽度
 //	winMinHeight:600,                     // 浏览器最小高度
-//	topFixHeight:30,                      // 顶部Fixed层的高度 middle:top共用
+//	topFixHeight:30,                      // 顶部Fixed层的高度 vertical:top共用
 //	spaceWidth:10,                        // 浮动边栏与页面的间距
 //	align:"right",                        // 浮动边栏左右停靠方式：right | left
-//	middle:"bottom",                      // 浮动边栏上下停靠方式：bottom | top
+//	vertical:"bottom",                    // 浮动边栏上下停靠方式：bottom | top
 //	speed:300,                            // 速度：非0毫秒数值 | "slow" | "fast"
 //	aniOnOff:true,                        // 效果开关：true | false
 //	moveOnOff:true,                       // 运动开关：true | false
@@ -29,13 +29,13 @@
 	$.fn.extend({
 		floatBar:function(options){
 			var defaults = {
-			liveHeight:360,
+				liveHeight:360,
 		    	bodyWidth:960,
 		    	winMinHeight:600,
 		    	topFixHeight:30,
 		    	spaceWidth:10,
 		    	align:"right",
-		    	middle:"bottom",
+		    	vertical:"bottom",
 		    	speed:300,
 		    	aniOnOff:true,
 		    	moveOnOff:true,
@@ -100,8 +100,25 @@
 				},options.speed);
 			});
 
+			if(navigator.userAgent.indexOf("MSIE 6")!=-1){
+				switch(options.vertical){
+					case "bottom":
+						thisObj.addClass("JQUI-FloBarDown");
+					break;
+					case "top":
+						thisObj.addClass("JQUI-FloBarUp");
+					break;
+				}
+				$("head").append("<style type='text/css'>.JQUI-FloBarDown{position:absolute;right:0;top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight));}.JQUI-FloBarUp{position:absolute;right:0;top:expression(eval(document.documentElement.scrollTop));}html{text-overflow:ellipsis;}</style>");
+			}else{
+				thisObj.css({
+					position:"fixed",
+					right:"0"
+				});
+			}
+
 			function dataEle(attrObj){
-				switch(options.middle){
+				switch(options.vertical){
 					case "bottom":
 						thisObj.data(attrObj,parseInt(thisObj.css(attrObj)));	// 存储样式表中bottom的值
 						return thisObj.data(attrObj);
@@ -118,7 +135,7 @@
 			var dataConBottom = dataEle("bottom");	// 提取bottom值
 			var dataConTop = dataEle("top");	// 提取bottom值
 			var posiObj = posiEle();	//	首次函数加载
-			thisObj.show();
+			// thisObj.show();
 
 			function posiEle(){
 				var posiAlign;
@@ -165,7 +182,7 @@
 
 			function chaScroll(cObj){
 				var floSwi = function(fT,fB){
-					switch(options.middle){
+					switch(options.vertical){
 						case "bottom":
 							options.aniOnOff ? thisObj.stop().animate(fT,options.speed) : thisObj.css(fT);
 						break;
