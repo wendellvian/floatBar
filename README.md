@@ -25,12 +25,12 @@ jQuery FloatBar Plugin
 	// 浮动边栏默认右下方
 	
 	$(element).floatBar({
-	middle:"top"
+	vertical:"top"
 	});
 	// 右上方 可以追加设置topFixHeight的值
 	
 	$(element).floatBar({
-	middle:"top",
+	vertical:"top",
 	align:"left"
 	});
 	// 左上方 可以追加设置topFixHeight的值
@@ -58,7 +58,6 @@ jQuery FloatBar Plugin
 
 **HTML写法**
 ```html
-	<!-- 下方 -->
 	<div class="element">
 		<div class="childelement"></div>
 	</div>
