@@ -60,12 +60,7 @@ jQuery FloatBar Plugin
 ```html
 	<!-- 下方 -->
 	<div class="element">
-	...
-	</div>
-	
-	<!-- 上方 -->
-	<div class="element">
-	...
+		<div class="childelement"></div>
 	</div>
 ```
 ===============================================================================
