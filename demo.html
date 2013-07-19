@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>floatBar</title>
-	<link rel="stylesheet" href="plugin/jquery.floatBar.css" type="text/css" />
 	<style type="text/css">
 		body{margin:0;}
 		.wraper{width:960px;margin:0px auto;}
@@ -29,36 +28,37 @@
 		*html .f-2{margin-top:100px;}
 		*html .f-3{margin-top:-10px;}
 		*html .f-4{margin-top:150px;}
-
+		
+		.focus{background:#999 !important;color:#fff !important;}
 	</style>
 </head>
 <body>
 	<div class="wraper">
-		<div class="w w1" id="w1"><div>1</div></div>
-		<div class="w w2" id="w2"><div>2</div></div>
-		<div class="w w3" id="w3"><div>3</div></div>
-		<div class="w w4" id="w4"><div>4</div></div>
-		<div class="w w5" id="w5"><div>5</div></div>
+		<div class="w" anchor-index="1"><div>1</div></div>
+		<div class="w" anchor-index="2"><div>2</div></div>
+		<div class="w" anchor-index="3"><div>3</div></div>
+		<div class="w" anchor-index="4"><div>4</div></div>
+		<div class="w" anchor-index="5"><div>5</div></div>
 	</div>
 
 	<!-- 浮动边栏布局 -->
-	<div class="f-1 JQUI-FloBarDown">
+	<div class="f-1">
 		<div class="navLnk">
-			<a href="#w1">1</a>
-			<a href="#w2">2</a>
-			<a href="#w3">3</a>
-			<a href="#w4">4</a>
-			<a href="#w5">5</a>
+			<a href="javascript:;">1</a>
+			<a href="javascript:;">2</a>
+			<a href="javascript:;">3</a>
+			<a href="javascript:;">4</a>
+			<a href="javascript:;">5</a>
 		</div>
 	</div>
 
-	<div class="f-2 JQUI-FloBarUp">
+	<div class="f-2">
 		<p>右侧上边栏</p>
 	</div>
-	<div class="f-3 JQUI-FloBarDown">
+	<div class="f-3">
 		<p>左侧下边栏</p>
 	</div>
-	<div class="f-4 JQUI-FloBarUp">
+	<div class="f-4">
 		<p>左侧上边栏</p>
 	</div>
 
@@ -67,7 +67,7 @@
 <script type="text/javascript" src="plugin/jquery.floatBar.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$(".f-1").floatBar();
+	$(".f-1").floatBar({eleLabel:"a"});
 	$(".f-2").floatBar({middle:"top",topFixHeight:0});
 	$(".f-3").floatBar({align:"left",moveOnOff:false});
 	$(".f-4").floatBar({align:"left",middle:"top"});
