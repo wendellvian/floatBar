@@ -9,10 +9,10 @@ jQuery FloatBar Plugin
 	liveHeight:360,                       // 活动高度: 取0时边栏位置为固定样式
 	bodyWidth:960,                        // 页面布局宽度
 	winMinHeight:600,                     // 浏览器最小高度
-	topFixHeight:30,                      // 顶部Fixed层的高度 middle:top共用
+	topFixHeight:30,                      // 顶部Fixed层的高度 vertical:top共用
 	spaceWidth:10,                        // 浮动边栏与页面的间距
 	align:"right",                        // 浮动边栏左右停靠方式：right | left
-	middle:"bottom",                      // 浮动边栏上下停靠方式：bottom | top
+	vertical:"bottom",                    // 浮动边栏上下停靠方式：bottom | top
 	speed:300,                            // 速度：非0毫秒数值 | "slow" | "fast"
 	aniOnOff:true,                        // 效果开关：true | false
 	moveOnOff:true                        // 运动开关：true | false
@@ -59,12 +59,12 @@ jQuery FloatBar Plugin
 **HTML写法**
 ```html
 	<!-- 下方 -->
-	<div class="element JQUI-FloBarDown">
+	<div class="element">
 	...
 	</div>
 	
 	<!-- 上方 -->
-	<div class="element JQUI-FloBarUp">
+	<div class="element">
 	...
 	</div>
 ```
