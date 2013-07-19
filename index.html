@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>FloatBar Plugin by wendellvian</title>
+    <title>FloatBar Plugin v1.2 by wendellvian</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -31,7 +31,7 @@
 
       <section>
         <div id="title">
-          <h1>FloatBar Plugin</h1>
+          <h1>FloatBar Plugin v1.2</h1>
           <p>基于jQuery的浮动边栏插件</p>
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/wendellvian">wendellvian</a></span>
@@ -42,13 +42,17 @@
 
 <p>兼容IE6浏览器</p>
 
+<p>发布floatBar v1.2</p>
+
+<p>修正：简化页面布局复杂性</p>
+
 <div class="highlight"><pre>    <span class="nx">liveHeight</span><span class="o">:</span><span class="mi">360</span><span class="p">,</span>                       <span class="c1">// 活动高度: 取0时边栏位置为固定样式</span>
     <span class="nx">bodyWidth</span><span class="o">:</span><span class="mi">960</span><span class="p">,</span>                        <span class="c1">// 页面布局宽度</span>
     <span class="nx">winMinHeight</span><span class="o">:</span><span class="mi">600</span><span class="p">,</span>                     <span class="c1">// 浏览器最小高度</span>
-    <span class="nx">topFixHeight</span><span class="o">:</span><span class="mi">30</span><span class="p">,</span>                      <span class="c1">// 顶部Fixed层的高度 middle:top共用</span>
+    <span class="nx">topFixHeight</span><span class="o">:</span><span class="mi">30</span><span class="p">,</span>                      <span class="c1">// 顶部Fixed层的高度 vertical:top共用</span>
     <span class="nx">spaceWidth</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span>                        <span class="c1">// 浮动边栏与页面的间距</span>
     <span class="nx">align</span><span class="o">:</span><span class="s2">"right"</span><span class="p">,</span>                        <span class="c1">// 浮动边栏左右停靠方式：right | left</span>
-    <span class="nx">middle</span><span class="o">:</span><span class="s2">"bottom"</span><span class="p">,</span>                      <span class="c1">// 浮动边栏上下停靠方式：bottom | top</span>
+    <span class="nx">vertical</span><span class="o">:</span><span class="s2">"bottom"</span><span class="p">,</span>                    <span class="c1">// 浮动边栏上下停靠方式：bottom | top</span>
     <span class="nx">speed</span><span class="o">:</span><span class="mi">300</span><span class="p">,</span>                            <span class="c1">// 速度：非0毫秒数值 | "slow" | "fast"</span>
     <span class="nx">aniOnOff</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>                        <span class="c1">// 效果开关：true | false</span>
     <span class="nx">moveOnOff</span><span class="o">:</span><span class="kc">true</span>                        <span class="c1">// 运动开关：true | false</span>
@@ -60,12 +64,12 @@
     <span class="c1">// 浮动边栏默认右下方</span>
 
     <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">floatBar</span><span class="p">({</span>
-    <span class="nx">middle</span><span class="o">:</span><span class="s2">"top"</span>
+    <span class="nx">vertical</span><span class="o">:</span><span class="s2">"top"</span>
     <span class="p">});</span>
     <span class="c1">// 右上方 可以追加设置topFixHeight的值</span>
 
     <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">floatBar</span><span class="p">({</span>
-    <span class="nx">middle</span><span class="o">:</span><span class="s2">"top"</span><span class="p">,</span>
+    <span class="nx">vertical</span><span class="o">:</span><span class="s2">"top"</span><span class="p">,</span>
     <span class="nx">align</span><span class="o">:</span><span class="s2">"left"</span>
     <span class="p">});</span>
     <span class="c1">// 左上方 可以追加设置topFixHeight的值</span>
@@ -93,14 +97,8 @@
 
 <p><strong>HTML写法</strong></p>
 
-<div class="highlight"><pre>    <span class="c">&lt;!-- 下方 --&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"element JQUI-FloBarDown"</span><span class="nt">&gt;</span>
-    ...
-    <span class="nt">&lt;/div&gt;</span>
-
-    <span class="c">&lt;!-- 上方 --&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"element JQUI-FloBarUp"</span><span class="nt">&gt;</span>
-    ...
+<div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"element"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"childelement"</span><span class="nt">&gt;&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 
