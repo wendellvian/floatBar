@@ -1,5 +1,6 @@
 jQuery FloatBar Plugin
 ========
+主页：http://wendellvian.github.io/floatBar
 
 **基于jQuery的浮动边栏插件**
 
