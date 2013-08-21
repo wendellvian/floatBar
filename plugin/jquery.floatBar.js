@@ -223,6 +223,7 @@
 
 			// 滚动事件
 			$(window).scroll(function(){
+				var posiObj = posiEle();
 				oWinTop = $(window).scrollTop();	// 滚动条滚动时距离顶部的坐标
 				options.moveOnOff ? chaScroll(posiObj) : " ";
 				options.focusOnOff ? sCrollScreen(posiObj) : " ";
